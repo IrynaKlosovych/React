@@ -12,9 +12,9 @@ function DisplayButton(props) {
   return (
     <>
       <div className='buttonsContainer'>
-        {listOfButtons.map((row, rowIndex) =>
-          row.map((buttonName, index) => (
-            <button key={`${rowIndex}-${index}`} onClick={() => buttonClick(buttonName)} >{buttonName}</button>
+        {listOfButtons.map((row) =>
+          row.map((buttonName) => (
+            <button key={`Button ${buttonName}`} onClick={() => buttonClick(buttonName)} >{buttonName}</button>
           ))
         )}</div>
     </>
