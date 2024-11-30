@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(255, 240, 217);
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+}
+
+#root {
+    width: 100%;
+}
+
+form {
+    width: 50%;
+    margin: 1em auto 5em;
+}
+
+.block,
+.choose-block {
+    background-color: #fff;
+    margin: 0.5em;
+    border: 1px solid gray;
+    border-radius: 0.5em;
+}
+
+.title-block {
+    border-top: 5px solid orange;
+}
+
+.title-block>div {
+    border-bottom: 1px solid gray;
+}
+
+.block>div,
+.title-block>div,
+.choose-block>div {
+    width: auto;
+    padding: 1em 2em;
+}
+
+.title-block>div:first-child {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 1em 1.2em;
+}
+
+.block>div:last-child {
+    border: none;
+    color: red;
+}
+
+.required {
+    color: red;
+}
+
+.error {
+    color: red
+}
+
+.block>div>input,
+.choose-block>div>input+label+input {
+    border: none;
+    width: 50%;
+    border-bottom: 1px solid gray;
+    padding-bottom: 1%;
+}
+
+.block>div>input:focus,
+.choose-block>div>input+label+input:focus {
+    border: none;
+    border-bottom: 2px solid red;
+    outline: none;
+}
+
+.choose-block>div>input+label,
+.choose-block>div>input+label+input {
+    margin-left: 1em;
+}
+
+.end-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.send {
+    background-color: rgb(224, 69, 0);
+    color: white;
+    margin-left: 1em;
+    border-radius: 10%;
+}
+
+.reset {
+    color: rgb(224, 69, 0);
+    background-color: transparent;
+    margin-right: 1em;
+}
+
+.send, .reset{
+    height: 3em;
+    padding: 0.5em;
+    border: none;
+}
+.end-form>div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+}
+progress{
+    width: 7em;
+    margin-right: 1em;
+}
