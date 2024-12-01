@@ -18,7 +18,7 @@ form {
 }
 
 .block,
-.choose-block {
+.choose-block, .multichoose-block {
     background-color: #fff;
     margin: 0.5em;
     border: 1px solid gray;
@@ -35,7 +35,7 @@ form {
 
 .block>div,
 .title-block>div,
-.choose-block>div {
+.choose-block>div, .multichoose-block>div {
     width: auto;
     padding: 1em 2em;
 }
@@ -110,4 +110,31 @@ form {
 progress{
     width: 7em;
     margin-right: 1em;
+}
+
+.multichoose-block>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.multichoose-block>div>div:first-child{
+    min-width: 7em
+}
+
+.multichoose-block>div>div, .multichoose-block>.question-header>div:first-child{
+    min-width: 5em;
+}
+
+.question-header>div{
+    text-align: center;
+}
+
+.choose-rows{
+    background-color: #f8f9fa;
+    margin: 0.5em;
+}
+
+.question-header, .choose-rows{
+        width: 100%;
 }

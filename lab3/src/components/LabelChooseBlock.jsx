@@ -1,12 +1,8 @@
 import PropTypes from 'prop-types';
 import styles from "../styles/App.module.css"
 
-// import { useState } from 'react';
-
 function LabelChooseBlock(props) {
-    const { label, description, isRequired, className, name, valueArray, type} = props;
-
-    // const {error, SetError} = useState(false);
+    const { label, description, isRequired, className, name, valueArray, type, register, errors} = props;
 
     return (
         <>
@@ -16,13 +12,13 @@ function LabelChooseBlock(props) {
                 {valueArray.map((elem) => {
                     return (
                         <div key={elem.id}>
-                            <input type={type} name={name} id={elem.id} value={elem.value} />
+                            <input type={type} name={name} id={elem.id} value={elem.value} {...register(name)}/>
                             <label htmlFor={elem.id}>{elem.value}</label>
-                            {elem.id.endsWith("other") && <input type="text" name={name}/>}
+                            {elem.id.endsWith("other") && <input type="text" name={name} {...register(`${name}_other`)} />}
                         </div>
                     );
                 })}
-                <div className={styles.error}></div>
+                {errors&&<div className={styles.error}>{errors.message}</div>}
             </div>
         </>
     )
@@ -35,7 +31,9 @@ LabelChooseBlock.propTypes = {
     className: PropTypes.string,
     name: PropTypes.string,
     valueArray: PropTypes.array,
-    type: PropTypes.string
+    type: PropTypes.string,
+    register: PropTypes.func,
+    errors: PropTypes.array
 }
 
 export default LabelChooseBlock
