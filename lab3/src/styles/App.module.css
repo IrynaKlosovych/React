@@ -60,7 +60,7 @@ form {
 }
 
 .block>div>input,
-.choose-block>div>input+label+input {
+.choose-block>div>input+label>input {
     border: none;
     width: 50%;
     border-bottom: 1px solid gray;
@@ -68,14 +68,14 @@ form {
 }
 
 .block>div>input:focus,
-.choose-block>div>input+label+input:focus {
+.choose-block>div>input+label>input:focus {
     border: none;
     border-bottom: 2px solid red;
     outline: none;
 }
 
 .choose-block>div>input+label,
-.choose-block>div>input+label+input {
+.choose-block>div>input+label>input {
     margin-left: 1em;
 }
 
@@ -137,4 +137,8 @@ progress{
 
 .question-header, .choose-rows{
         width: 100%;
+}
+
+.block-error{
+    border-color: red;
 }

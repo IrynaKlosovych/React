@@ -6,7 +6,7 @@ function LabelMultiChooseBlock(props) {
 
     return (
         <>
-            <div className={className}>
+            <div className={`${className}`}>
                 <div><label>{label} {isRequired ? <span className={styles.required}>*</span> : null}</label></div>
                 {(description && description !== "") ? <div>{description}</div> : null}
 
@@ -44,7 +44,7 @@ LabelMultiChooseBlock.propTypes = {
     className: PropTypes.string,
     type: PropTypes.string,
     valueArray: PropTypes.object,
-    register: PropTypes.func
+    register: PropTypes.func,
 }
 
 export default LabelMultiChooseBlock

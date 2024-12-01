@@ -9,7 +9,7 @@ import LabelChooseBlock from './components/LabelChooseBlock'
 import LabelMultiChooseBlock from './components/LabelMultiChooseBlock'
 
 function App() {
-  const {handleSubmit, reset, register, formState: { errors }} = useForm({resolver: yupResolver(schema)});
+  const { handleSubmit, reset, register, formState: { errors } } = useForm({ resolver: yupResolver(schema), mode: 'all' });
 
   const onSubmit = (data) => {
     console.log('Form Data:', data);
@@ -27,31 +27,28 @@ function App() {
             }
             case "input": {
               return <LabelInputBlock key={elem.id} label={elem.content.label} description={elem.content.description}
-                isRequired={elem.content.isRequired} className={`${styles.block}`} 
-                name={elem.content.name} placeholder={elem.content.placeholder} register={register} errors={errors[elem.content.name]}/>
+                isRequired={elem.content.isRequired} className={`${styles.block}`}
+                name={elem.content.name} placeholder={elem.content.placeholder} register={register} errors={errors[elem.content.name]} />
             }
             case "choose": {
               return <LabelChooseBlock key={elem.id} label={elem.content.label} description={elem.content.description}
                 isRequired={elem.content.isRequired} className={`${styles['choose-block']}`}
-                 name={elem.content.name} valueArray={elem.content.valueArray} type={elem.content.type} register={register} errors={errors[elem.content.name]}/>
+                name={elem.content.name} valueArray={elem.content.valueArray} type={elem.content.type} register={register} errors={errors[elem.content.name]} />
             }
-
-
             case "multichoose": {
               return <LabelMultiChooseBlock key={elem.id} label={elem.content.label} description={elem.content.description}
                 isRequired={elem.content.isRequired} className={`${styles['multichoose-block']}`}
-                 valueArray={elem.content.valueArray} type={elem.content.type} register={register}/>
+                valueArray={elem.content.valueArray} type={elem.content.type} register={register} />
             }
             default: return null
           }
 
         })
-
         }
         <div className={styles['end-form']}>
           <div><button className={styles.send} type="submit">Надіслати</button></div>
           <div><progress id="page" value="1" max="1"></progress><label htmlFor="page">Сторінка 1 з 1</label></div>
-          <div><button className={styles.reset} onClick={() => reset()}>Очистити форму</button></div>
+          <div><button className={styles.reset} onClick={() => reset()} type='button'>Очистити форму</button></div>
         </div>
       </form>
     </>

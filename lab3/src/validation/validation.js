@@ -4,6 +4,7 @@ import data from '../data/dataForLab.js'
 const validationRules = {
     isRequired: (validation, value) =>  value ? validation.required("Відповідь на це запитання обов'язкова") : validation,
     minlen: (validation, value) => validation.min(value, `Мінімальна довжина ${value} символів`),
+    minlencheckbox: (validation, value) => validation.min(value,`Мінімальна кількість ${value}`).typeError(`Необхідно обрати принаймні ${value}`),
 };
 
 function Validate(validation, conditionals) {
@@ -15,14 +16,14 @@ function Validate(validation, conditionals) {
         });
     }
     )
-    console.log(validation)
+    // console.log(validation)
     return validation;
 }
 
 const schema = yup.object(
     data.reduce((acc, field) => {
         if (field.content.conditionals) {
-            console.log(field.id);
+            // console.log(field.id);
             let validation;
             switch (field.type) {
                 case 'input': {
@@ -34,7 +35,7 @@ const schema = yup.object(
                         validation = yup.string();
                     }
                     if (field.content.type === "checkbox") {
-                        validation = yup.array().of(yup.bool())
+                        validation = yup.array()
                     }
                     break;
                 }

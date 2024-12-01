@@ -65,7 +65,7 @@ const data = [
             type: "checkbox",
             conditionals: [
                 {
-                    minlen: 1,
+                    minlencheckbox: 1,
                     isRequired: true
                 }
             ]
@@ -118,6 +118,7 @@ const data = [
             type: "checkbox",
             conditionals: [
                 {
+                    minlencheckbox: 1,
                     isRequired: true
                 }
             ]
@@ -217,6 +218,7 @@ const data = [
             type: "checkbox",
             conditionals: [
                 {
+                    minlencheckbox: 1,
                     isRequired: true
                 }
             ]
