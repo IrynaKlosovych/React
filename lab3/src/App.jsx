@@ -9,11 +9,15 @@ import LabelChooseBlock from './components/LabelChooseBlock'
 import LabelMultiChooseBlock from './components/LabelMultiChooseBlock'
 
 function App() {
-  const { handleSubmit, reset, register, formState: { errors } } = useForm({ resolver: yupResolver(schema), mode: 'all' });
+  const { handleSubmit, reset, register, formState: { errors }, trigger } = useForm({ resolver: yupResolver(schema), mode: 'all' });
 
   const onSubmit = (data) => {
     console.log('Form Data:', data);
     reset();
+  };
+
+  const handleChange = (nameField) => {
+    trigger(nameField);
   };
 
   return (
@@ -38,7 +42,8 @@ function App() {
             case "multichoose": {
               return <LabelMultiChooseBlock key={elem.id} label={elem.content.label} description={elem.content.description}
                 isRequired={elem.content.isRequired} className={`${styles['multichoose-block']}`}
-                valueArray={elem.content.valueArray} type={elem.content.type} register={register} />
+                valueArray={elem.content.valueArray} type={elem.content.type} register={register}
+                errors={errors[elem.content.name]} name={elem.content.name} handelChange={handleChange} />
             }
             default: return null
           }

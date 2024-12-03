@@ -142,3 +142,7 @@ progress{
 .block-error{
     border-color: red;
 }
+
+button:hover{
+    cursor: pointer;
+}

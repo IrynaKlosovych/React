@@ -74,7 +74,7 @@ const data = [
     /*5*/{
         id: "5", type: "multichoose",
         content: {
-            label: "My current level on tech", description: null, isRequired: true,
+            label: "My current level on tech", description: null, isRequired: true, name: "currentlevel",
             valueArray: {
                 rows: [
                     { label: "JS", name: "js" },
@@ -94,11 +94,7 @@ const data = [
                 columns: ["Not relevant", "Trainee", "Junior", "Middle", "Senior", "Expert"],
             },
             type: "radio",
-            conditionals: [
-                {
-                    isRequired: true
-                }
-            ]
+            conditionals: [{}]
         }
     },
     /*6*/{
@@ -144,25 +140,27 @@ const data = [
     },
     /*8*/{
         id: "8", type: "input",
-        content: { label: "#2 My goals on next time", description: null, isRequired: true, name: "goals_two", placeholder: "Ваша відповідь",
+        content: {
+            label: "#2 My goals on next time", description: null, isRequired: true, name: "goals_two", placeholder: "Ваша відповідь",
             conditionals: [
                 {
                     isRequired: true,
                     minlen: 10
                 }
             ]
-         }
+        }
     },
     /*9*/{
         id: "9", type: "input",
-        content: { label: "#3 My goals on next time", description: null, isRequired: true, name: "goals_three", placeholder: "Ваша відповідь",
+        content: {
+            label: "#3 My goals on next time", description: null, isRequired: true, name: "goals_three", placeholder: "Ваша відповідь",
             conditionals: [
                 {
                     isRequired: true,
                     minlen: 10
                 }
             ]
-         }
+        }
     },
     /*10*/{
         id: "10", type: "choose",
