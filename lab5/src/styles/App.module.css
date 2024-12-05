@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.filter{
+    display: flex;
+    flex-direction: row;
+}
+
+.filter>div{
+    margin: 1em;
+}
+
+.filtered{
+    display: flex;
+    flex-direction: column;
+}
+.filtered>div{
+    margin: 1em;
+    width: 30%;
+    height: 2em;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.delete{
+    color: red
+}
+
+.update{
+    color:green
+}
+
+.delete:hover, .update:hover{
+   cursor: pointer;
+}
+
+.inputTitle, .inputUpdate{
+    margin: 1em;
+}
+
+.inputUpdate{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
