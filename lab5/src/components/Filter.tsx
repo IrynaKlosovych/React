@@ -1,10 +1,11 @@
 import { useAtom } from "jotai";
 import { filterAtom } from "../stores";
+import styles from "../styles/App.module.css"
 
 const Filter = () => {
     const [filter, setFilter] = useAtom(filterAtom);
     return (
-        <div>
+        <div className={styles["filter"]}>
             <div>
                 <label>
                     <input type="radio" name="options" value="all" 

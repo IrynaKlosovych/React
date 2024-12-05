@@ -2,13 +2,14 @@ import { useAtom} from "jotai";
 import { FilteredType } from "../types";
 import { filteredAtom } from "../stores";
 import TodoItem from "./TodoItem";
+import styles from "../styles/App.module.css"
 
-const Filtered = ({ remove }: FilteredType) => {
+const Filtered = ({ remove, update }: FilteredType) => {
     const [todos] = useAtom(filteredAtom);
     return (
-        <div>
+        <div className={styles["filtered"]}>
             {todos.map((atom) => {
-                return (<TodoItem key={new Date().toISOString()} atom={atom} remove={remove} />)
+                return (<TodoItem key={atom.toString()} atom={atom} remove={remove} update={update}/>)
             }
             )}
         </div>
